@@ -1,0 +1,85 @@
+research_task:
+  description: >
+    Conduct thorough research about {topic} and {industry} trends. Search for the latest developments, 
+    emerging technologies, key skills, and career opportunities in this space. Focus on finding 
+    information that would be valuable for professionals looking to advance their careers or stay 
+    current with industry trends. Look for:
+    1. Latest trends and developments in {topic}
+    2. Key skills that are in high demand
+    3. Career opportunities and growth areas
+    4. Industry insights and expert opinions
+    5. Practical advice for professionals
+    
+    Use web search tools to find current, relevant information. Prioritize recent articles, 
+    industry reports, and expert insights from the past 6 months.
+  expected_output: >
+    A comprehensive research report with 5-7 key findings about {topic} in {industry}, including:
+    - Current trends and developments
+    - In-demand skills and technologies
+    - Career advancement opportunities
+    - Expert insights and industry data
+    - Actionable advice for professionals
+    Format as a structured list with clear bullet points and supporting details.
+  agent: career_coach
+
+content_creation_task:
+  description: >
+    Using the research findings about {topic}, create an engaging LinkedIn post that will resonate 
+    with professionals in {industry}. The post should be informative, valuable, and shareable. 
+    
+    Requirements:
+    - Maximum 200 words
+    - Include relevant emojis (2-4 strategic placements)
+    - Add 3-5 relevant hashtags at the end
+    - Use a compelling hook in the first line
+    - Focus on {tone} tone (professional, casual, inspiring, etc.)
+    - Target {audience} audience
+    - Include actionable insights or tips
+    - End with a call-to-action or engaging question
+    
+    Make the content conversational and authentic while providing genuine value to LinkedIn users.
+  expected_output: >
+    A complete LinkedIn post ready for publication, including:
+    - Compelling headline/hook (under 30 characters for preview)
+    - Main content (under 200 words)
+    - Strategic emoji placement
+    - Relevant hashtags
+    - Call-to-action or engaging question
+    
+    The post should be formatted exactly as it would appear on LinkedIn, with proper line breaks and spacing.
+  agent: linkedin_writer
+  context:
+    - research_task
+
+content_review_task:
+  description: >
+    Review and refine the LinkedIn post created by the content writer. Ensure it meets all 
+    requirements and LinkedIn best practices. Check for:
+    
+    1. Word count (must be under 200 words)
+    2. Headline length (under 30 characters for mobile preview)
+    3. Emoji usage (appropriate and not excessive)
+    4. Hashtag relevance and quantity (3-5 hashtags)
+    5. Engagement potential (hook, value, call-to-action)
+    6. Professional tone appropriate for {industry}
+    7. Grammar and spelling accuracy
+    8. Content structure and readability
+    9. Alignment with {tone} and {audience} requirements
+    
+    Make necessary edits to improve engagement while maintaining authenticity. If the post 
+    exceeds requirements, suggest cuts. If it lacks engagement, suggest improvements.
+  expected_output: >
+    A final, polished LinkedIn post that meets all requirements:
+    - Under 200 words
+    - Compelling headline under 30 characters
+    - Appropriate emoji usage
+    - 3-5 relevant hashtags
+    - Strong engagement potential
+    - Professional quality
+    - Proper formatting for LinkedIn
+    
+    Include a brief explanation of any changes made and why they improve the post's potential performance.
+  agent: content_critic
+  context:
+    - research_task
+    - content_creation_task

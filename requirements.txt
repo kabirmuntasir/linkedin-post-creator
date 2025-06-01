@@ -1,0 +1,8 @@
+crewai==0.121.1
+crewai-tools==0.46.0
+quart==0.20.0
+quart-cors==0.7.0
+python-dotenv==1.1.0
+asyncio
+uuid
+traceback 
